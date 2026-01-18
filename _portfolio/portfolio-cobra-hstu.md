@@ -6,7 +6,7 @@ collection: portfolio
 
 ## 项目概览
 
-本项目复现并优化了基于 **COBRA (Cascaded Organized Bi-Represented generAtive retrieval)** 框架的生成式推荐系统。针对传统 ID 推荐和 TIGER 等早期生成式模型的局限性，本项目引入了 **SID2VID** 机制，并采用 Meta 最新的 **HSTU (Hierarchical Sequential Transduction Unit)** 替代传统 Transformer 作为序列建模的主干网络。
+本项目复现并优化了基于 **COBRA** 框架的生成式推荐系统。针对传统 ID 推荐和 TIGER 等早期生成式模型的局限性，本项目引入了 **SID2VID** 机制，并采用 Meta 最新的 **HSTU (Hierarchical Sequential Transduction Unit)** 替代传统 Transformer 作为序列建模的主干网络。
 
 ## 核心技术栈
 
@@ -25,5 +25,6 @@ collection: portfolio
 
 3.  **高质量语义聚类**：
     实现了 Balanced K-Means 算法生成 Semantic IDs，解决了传统 RQ-VAE 在长尾物品上 ID 分配不均的问题，将 Codebook 利用率提升至接近 100%。
+
 
 [阅读详细技术博客](/posts/2026-01-18-cobra-hstu-deep-dive)
