@@ -1,6 +1,6 @@
 # 顶部导航栏配置
 main:
-  - title: "项目经历"        # 原 Publications，改为项目经历
+  - title: "项目"        # 原 Publications，改为项目经历
     url: /publications/
     
   - title: "博客文章"        # Blog Posts
@@ -10,5 +10,5 @@ main:
     url: /cv/
     
   # 如果需要“关于我”页面，可以把下面这行前面的 # 去掉
-  - title: "关于我"
-    url: /
+  # - title: "关于我"
+  # url: /
