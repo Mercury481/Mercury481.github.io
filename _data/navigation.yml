@@ -4,7 +4,7 @@ main:
     url: /publications/
     
   - title: "博客文章"        # Blog Posts
-    url: /year-archive/
+    url: /posts/
     
   - title: "简历"            # CV
     url: /cv/
