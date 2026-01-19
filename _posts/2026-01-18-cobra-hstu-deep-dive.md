@@ -1,13 +1,16 @@
 ---
 title: "稀疏遇见稠密：基于 HSTU 的 COBRA 生成式推荐系统实战与分析"
 date: 2026-01-18
-permalink: /posts/2026-01-18-cobra-hstu-deep-dive/
+permalink: /posts/2026/01/cobra-hstu-deep-dive/
 tags:
   - Generative Recommendation
   - HSTU
   - COBRA
   - Recommender Systems
   - Machine Learning
+toc: true  # 开启右侧文章目录
+toc_sticky: true # 目录随页面滚动
+excerpt: "生成式检索正在重塑推荐系统格局。本文深入探讨最新的 COBRA 框架，介绍如何利用高性能骨干网络 HSTU 在 MovieLens-20M 数据集上结合稀疏 ID 与稠密向量，解决量化损失问题。"
 ---
 
 > **摘要**：生成式检索（Generative Retrieval）正在重塑推荐系统的格局。从 TIGER 提出的语义 ID (Semantic ID) 范式开始，模型不再通过复杂的匹配-排序漏斗，而是直接“生成”用户下一个感兴趣物品的 ID。然而，离散的 ID 量化不可避免地带来了信息损失。本文深入探讨了最新的 COBRA 框架，通过引入稠密向量 (Dense Representation) 的级联生成来弥补这一缺陷，并详细介绍了如何利用高性能骨干网络 HSTU 在 MovieLens-20M 数据集上实现这一系统。
@@ -68,9 +71,3 @@ $$S = [x_1, v_1, x_2, v_2, ..., x_n, v_n]$$
 本项目成功复现并改进了 COBRA 架构。实验证明，将 Semantic ID 的结构化先验与 Dense Vector 的丰富语义相结合，是生成式推荐系统的必经之路。而 HSTU 的引入，则为这种复杂的级联生成提供了必要的算力效率支撑。
 
 未来的工作将集中在引入更强大的 LLM 作为 Item Encoder，以及探索在超大规模工业数据集上的 Scaling Law。
-
----
-*参考资料:*
-1. *Rajput et al. "Recommender Systems with Generative Retrieval." NeurIPS 2023.*
-2. *Yang et al. "Sparse Meets Dense: Unified Generative Recommendations with Cascaded Sparse-Dense Representations." arXiv 2025.*
-3. *Zuo et al. "Actions Speak Louder than Words: Trillion-Parameter Sequential Transducers for Generative Recommendations." arXiv 2024.*
