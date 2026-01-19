@@ -1,6 +1,6 @@
 ---
 title: "基于 HSTU 与 COBRA 架构的下一代生成式推荐系统"
-excerpt: "探索推荐系统的范式转移：从 TIGER 的纯语义 ID 生成，进化为 '稀疏遇见稠密' (Sparse Meets Dense) 的 COBRA 级联架构。本项目使用高性能 HSTU 作为骨干网络，在 ML-20M 数据集上实现了高效的端到端生成式检索。<br/><img src='/images/cobra_hstu_teaser.png'>"
+excerpt: "探索推荐系统的范式转移：从 TIGER 的纯语义 ID 生成，进化为 '稀疏遇见稠密' (Sparse Meets Dense) 的 COBRA 级联架构。本项目使用高性能 HSTU 作为骨干网络，在 ML-20M 数据集上实现了高效的端到端生成式检索。"
 collection: portfolio
 ---
 
@@ -28,3 +28,4 @@ collection: portfolio
 
 
 [阅读详细技术博客](/posts/2026-01-18-cobra-hstu-deep-dive)
+
