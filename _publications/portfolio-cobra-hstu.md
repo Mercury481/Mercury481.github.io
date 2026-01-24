@@ -6,7 +6,7 @@ tags:
   - COBRA
   - Recommender Systems
   - Machine Learning
-excerpt: "探索推荐系统的范式转移：从 TIGER 的纯语义 ID 生成，进化为 '稀疏遇见稠密' (Sparse Meets Dense) 的 COBRA 级联架构。本项目使用高性能 HSTU 作为骨干网络，在 ML-20M 数据集上实现了高效的端到端生成式检索。"
+excerpt: "本项目是对 Shao 的 HSTU-Semantic-ID 的深度扩展，旨在将百度 COBRA 架构的序列交错生成机制引入 HSTU 推荐模型。项目的核心创新在于实现了语义 ID (SID) 与向量 ID (VID) 的混合训练，通过交替预测 SID（分类任务）和 VID（度量学习）来增强模型对物品语义与协同信号的双重捕捉。"
 collection: portfolio
 ---
 
@@ -34,6 +34,7 @@ collection: portfolio
 
 
 [阅读详细技术博客](https://jerryayu.github.io/posts/2026/01/cobra-hstu-deep-dive/)
+
 
 
 
