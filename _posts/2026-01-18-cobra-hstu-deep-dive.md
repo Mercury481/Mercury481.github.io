@@ -81,6 +81,7 @@ for prefix_i in range(1, self._num_layers + 1):
 受 OneRec 启发，我实现了 Balanced K-Means（见代码 save_balenced.py）。通过在聚类过程中添加平衡项 (--balance-tol)，强制让每个簇的电影数量尽可能均匀。
 
 > **这个代码的作用是离线生成 SID**。它读取预训练好的商品向量，使用一种改进的平衡 K-Means 算法进行层级聚类，生成 SID 码本和查找表，并保存为 .pkl 文件供训练使用。针对普通 K-Means 容易导致簇大小不均匀的问题，实现了 BalancedKMeans，强制每个簇的大小在一定范围内。
+{: .notice--info}
 
 我的 fit 方法包含了一套强制平衡逻辑：
 
@@ -170,7 +171,8 @@ def fit(self, X):
     
 4.  **码本冲突率**：衡量有多少商品被分配了完全相同的 SID 前缀。
 
-**实证效果 (ML-20M)**：使用 Balanced K-Means 后，第 3 层的归一化标记熵从 ~0.8+ 提高到 ~0.99+；前缀冲突率从 ~10% 下降到 ~6%。这是一个巨大的进步。
+> **实证效果 (ML-20M)**：使用 Balanced K-Means 后，第 3 层的归一化标记熵从 ~0.8+ 提高到 ~0.99+；前缀冲突率从 ~10% 下降到 ~6%。这是一个巨大的进步。
+{: .notice--warning} 
 
 ---
 
@@ -317,4 +319,3 @@ self.register_buffer(
 对于拥有海量算力（大 Batch）和富媒体内容（强内容信号）的场景，COBRA 架构依然极具潜力。而对于传统的协同过滤主导的数据集，Shao 的结论依然成立：有时候，简单的 ID 就是最好的。
 
 感谢阅读！如果您对代码细节感兴趣，欢迎查看仓库中的 `sidvid_loss.py` 和 `embedding_modules.py`。
-
