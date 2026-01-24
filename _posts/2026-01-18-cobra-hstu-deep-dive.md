@@ -17,7 +17,7 @@ excerpt: "在 HSTU 中探索 COBRA 架构，实现语义 ID (SID) 和向量 ID (
  本博客记录了我基于 Shao 的 HSTU-Semantic-ID 项目进行的深度扩展。我尝试将百度的 COBRA 架构（序列交错生成）引入 HSTU，实现了 SID (语义ID) 和 VID (向量ID/视觉ID) 的混合训练。虽然最终在 MovieLens-20M 上的直接效果未达 SOTA，但我们在平衡聚类、混合解码策略以及双流损失函数上的探索，揭示了生成式推荐中“分类”与“度量学习”之间的博弈。
 {: .notice--info}
 
-> **相关代码**: [github.com/gabriel-reina/sid2vid-recommender](https://github.com/gabriel-reina/sid2vid-recommender)
+> **相关代码**: [github.com/JerryaYu/cobra](https://github.com/JerryaYu/cobra.git)
 {: .notice--info}
 
 ---
@@ -320,6 +320,7 @@ self.register_buffer(
 对于拥有海量算力（大 Batch）和富媒体内容（强内容信号）的场景，COBRA 架构依然极具潜力。而对于传统的协同过滤主导的数据集，Shao 的结论依然成立：有时候，简单的 ID 就是最好的。
 
 感谢阅读！如果您对代码细节感兴趣，欢迎查看仓库中的 `sidvid_loss.py` 和 `embedding_modules.py`。
+
 
 
 
