@@ -42,7 +42,7 @@ excerpt: "在 HSTU 中探索 COBRA 架构，实现语义 ID (SID) 和向量 ID (
 
 3.  **SID 元组的嵌入 (PrefixN)**：这是将元组转为整数索引的关键。业界（实际上也包括学术界）对“生成式万物”的热情已经为物品生成了丰富的语义嵌入。找到在传统系统中重用这些嵌入的方法，是一条稳步前进的实用途径。
 
-Shao 提供的 **PrefixN 实现本质上是“路径求和”**。对于一个 SID $(c_1, c_2, c_3)$，模型实际计算的向量是：
+Shao 提供的 **PrefixN 实现本质上是“路径求和”**。对于一个 SID \\((c_1, c_2, c_3)\\) ，模型实际计算的向量是：
 
 $$\mathbf{E} = \text{Emb}(\text{Hash}(c_1)) + \text{Emb}(\text{Hash}(c_1, c_2)) + \text{Emb}(\text{Hash}(c_1, c_2, c_3))$$
 
@@ -320,6 +320,7 @@ self.register_buffer(
 对于拥有海量算力（大 Batch）和富媒体内容（强内容信号）的场景，COBRA 架构依然极具潜力。而对于传统的协同过滤主导的数据集，Shao 的结论依然成立：有时候，简单的 ID 就是最好的。
 
 感谢阅读！如果您对代码细节感兴趣，欢迎查看仓库中的 `sidvid_loss.py` 和 `embedding_modules.py`。
+
 
 
 
