@@ -62,7 +62,7 @@ for prefix_i in range(1, self._num_layers + 1):
     embs = self._get_emb_from_idx(emb_id_mod, self._item_emb_SID)
     sum_embs += embs
 ```
-这样做的好处是实现了**层级共享**：所有以 $c_1$ 开头的物品都会共享第一项嵌入，从而让长尾物品也能获得很好的基础表示。
+这样做的好处是实现了**层级共享**：所有以 \\(c_1\\) 开头的物品都会共享第一项嵌入，从而让长尾物品也能获得很好的基础表示。
 
 4. **SID 的融合**：Shao 的研究指出，保留原始的任意 ID 嵌入表，并将其与 prefixN SID 嵌入融合（prefixN-indEmb）效果最好。他尝试了 sum、FC、MLP 甚至 Gate 机制。
 
@@ -162,9 +162,9 @@ def fit(self, X):
 1.  **重建损失**：MSE 和 Cosine Loss，衡量 SID 重组出的向量与原始向量的差异。
 2.  **码本利用率**：每一层有多少个码被实际使用了（去重后的数量）。
 3.  **Token 分布熵**：衡量 Token 使用的均匀程度。
-    * 对于第 $l$ 层，首先计算每个 Token $k$ 的出现概率 $p_k^{(l)}$：$p_k^{(l)} = \frac{\text{Count}(k \text{ in layer } l)}{N}$
-    * 原始熵：$H^{(l)} = - \sum_{k=1}^{K} p_k^{(l)} \log_2(p_k^{(l)})$(仅对 $$p_k > 0$$ 的项求和)
-    * **归一化熵**：$\bar{H}^{(l)} = \frac{H^{(l)}}{\log_2 K}$， $\log_2 K$ 是理论上的最大熵（即均匀分布时的熵）。
+    * 对于第 \\(l\\) 层，首先计算每个 Token \\(k\\) 的出现概率 \\(p_k^{(l)}\\)：\\(p_k^{(l)} = \frac{\text{Count}(k \text{ in layer } l)}{N}\\)
+    * 原始熵：\\(H^{(l)} = - \sum_{k=1}^{K} p_k^{(l)} \log_2(p_k^{(l)})\\)(仅对 $$p_k > 0$$ 的项求和)
+    * **归一化熵**：$$\bar{H}^{(l)} = \frac{H^{(l)}}{\log_2 K}$$， $$\log_2 K$$ 是理论上的最大熵（即均匀分布时的熵）。
     * 结果越接近 1.0，说明分布越均匀（平衡 K-Means 的效果好）。
     
 4.  **码本冲突率**：衡量有多少商品被分配了完全相同的 SID 前缀。
@@ -192,8 +192,8 @@ def fit(self, X):
 
 然后是 **Attention Mask** 的处理：标准的因果掩码。HSTU 使用的是标准的**上三角因果掩码**。在交错序列 `[SID, VID]` 下的运作逻辑：由于序列在物理位置上被展平为 SID 在前，VID 在后：
 
-1. 生成 SID 时：位置为 $i$。Causal Mask 允许它看到 $0$ 到 $i$ 的位置。它只能看到过去的信息。
-2. 生成 VID 时：位置为 $i+1$。Causal Mask 允许它看到 $0$ 到 $i+1$ 的位置。这意味着 VID 可以看到同一个时间步的 SID。
+1. 生成 SID 时：位置为 $$i$$。Causal Mask 允许它看到 $$0$$ 到 $$i$$ 的位置。它只能看到过去的信息。
+2. 生成 VID 时：位置为 $$i+1$$。Causal Mask 允许它看到 $$0$$ 到 $$i+1$$ 的位置。这意味着 VID 可以看到同一个时间步的 SID。
 
 ```python
 self.register_buffer(
@@ -320,6 +320,7 @@ self.register_buffer(
 对于拥有海量算力（大 Batch）和富媒体内容（强内容信号）的场景，COBRA 架构依然极具潜力。而对于传统的协同过滤主导的数据集，Shao 的结论依然成立：有时候，简单的 ID 就是最好的。
 
 感谢阅读！如果您对代码细节感兴趣，欢迎查看仓库中的 `sidvid_loss.py` 和 `embedding_modules.py`。
+
 
 
 
